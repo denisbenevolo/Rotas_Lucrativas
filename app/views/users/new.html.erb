@@ -1,0 +1,40 @@
+
+
+<h1>Cadastre-se</h1><br>
+<script>
+function Mascara(objeto){
+if(objeto.value.length==0){
+	objeto.value='('+objeto.value;
+	}
+if(objeto.value.length==3){
+	objeto.value=objeto.value+') ';
+	}
+if(objeto.value.length==10){
+	objeto.value=objeto.value+'-';
+	}
+
+}
+</script>
+<%= form_for(@user, :html => { :multipart => true }) do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div align="left">
+    <%= f.text_field :nome, :class => 'inputtext text_field DOMControl_placeholder', :placeholder => "Nome" %>
+	<%= f.text_field :sobrenome, :class => 'inputtext text_field DOMControl_placeholder', :placeholder => "Sobrenome" %></p>
+	<p><%= f.email_field :email, :class => 'inputtext2 text_field DOMControl_placeholder', :placeholder => "E-mail" %></p>
+	<p><%= f.text_field :telefone, :class => 'inputtext2 text_field DOMControl_placeholder', :placeholder => "Telefone", :onkeypress => 'Mascara(this);' %></p>
+	<p><%= f.password_field :password, :class => 'inputtext2 text_field DOMControl_placeholder', :placeholder => "Nova Senha" %></p>
+    <p><%= f.password_field :password_confirmation, :class => 'inputtext2 text_field DOMControl_placeholder', :placeholder => "Repetir Senha"%></p>
+	Adicione uma foto ao seu perfil
+	<p><%= f.file_field :photo %></p>
+  <%= submit_tag :Cadastrar, :class => 'i2Style' %>
+  </div>
+<% end %>

@@ -1,0 +1,28 @@
+<h1>Buscar Rota</h1>
+<%= form_tag(rota_path, :method => "get") do %>
+  <%= text_field_tag(:search,params[:search], :class => 'inputtext text_field DOMControl_placeholder', :placeholder => "Destino" ) %>
+  <%= submit_tag("Buscar", :class => 'i2Style2') %></p>
+<% end %><p>
+<table>
+  <tr>
+    <th>Origem</th>
+    <th>Destino</th>
+    <th>Data</th>
+	  <th>Horario</th>
+    <th></th>
+    
+  </tr>
+<% @rota.each do |rotum|%>
+  <tr>
+    <td><%= rotum.origem %></td>
+    <td><%= rotum.destino %></td>
+    <td><%= rotum.data %></td>
+	  <td><%= rotum.horario %></td>
+	  <td><%= link_to 'Vizualizar', rotum %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<!--
+<%= link_to 'New Rotum', new_rotum_path %>
+-->

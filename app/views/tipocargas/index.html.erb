@@ -1,0 +1,23 @@
+<h1>Listing tipocargas</h1>
+
+<table>
+  <tr>
+    <th>Tipo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tipocargas.each do |tipocarga| %>
+  <tr>
+    <td><%= tipocarga.tipo %></td>
+    <td><%= link_to 'Show', tipocarga %></td>
+    <td><%= link_to 'Edit', edit_tipocarga_path(tipocarga) %></td>
+    <td><%= link_to 'Destroy', tipocarga, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tipocarga', new_tipocarga_path %>

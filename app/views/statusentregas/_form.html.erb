@@ -1,0 +1,21 @@
+<%= form_for(@statusentrega) do |f| %>
+  <% if @statusentrega.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@statusentrega.errors.count, "error") %> prohibited this statusentrega from being saved:</h2>
+
+      <ul>
+      <% @statusentrega.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

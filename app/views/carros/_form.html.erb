@@ -1,0 +1,38 @@
+<%= form_for(@carro,:html => { :multipart => true }) do |f| %>
+  <% if @carro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@carro.errors.count, "error") %> prohibited this carro from being saved:</h2>
+
+      <ul>
+      <% @carro.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :marca, :class => 'inputtext text_field DOMControl_placeholder', :placeholder => "Marca" %></br></br>
+  </div>
+  <div class="field">
+    <%= f.text_field :modelo, :class => 'inputtext text_field DOMControl_placeholder', :placeholder => "Modelo" %></br></br>
+  </div>
+  <div class="field">
+    <%= f.text_field :ano , :class => 'inputtext text_field DOMControl_placeholder', :placeholder => "Ano"%></br></br>
+  </div>
+  <div class="field">
+    <%= f.text_field :cor, :class => 'inputtext text_field DOMControl_placeholder', :placeholder => "Cor" %></br></br>
+  </div>
+  <div class="field">
+    <%= f.text_field :placa , :class => 'inputtext text_field DOMControl_placeholder', :placeholder => "Placa"%></br></br>
+  </div>
+  <div class="field">
+    Adicione uma foto do carro:</br>
+    <%= f.file_field :photo %></br></br>
+  </div>
+
+  
+  <div class="actions">
+    <%= f.submit :Cadastrar, :class => 'i2Style' %>
+  </div>
+<% end %>

@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+<div class="maps">
+<%= yield :scripts %>
+<%= gmaps4rails(@json) %> 
+</div>
+<br />
+<p>
+  <b>Origem:</b>
+  <%= @rotum.origem %>
+</p>
+
+<p>
+  <b>Destino:</b>
+  <%= @rotum.destino %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @rotum.data %>
+</p>
+
+<p>
+  <b>Horario:</b>
+  <%= @rotum.horario %>
+</p>
+<p>
+  <b>Motorista:</b>
+  <% @user =  User.find(@rotum.idUser) %>
+  <% setMotorista(@user.id) %>
+  <% $aux=@user.nome+" "+@user.sobrenome %>
+  <%= link_to $aux, @user, :style =>'color:white' %>
+</p>
+<p>
+  
+<% if  @rotum.idCarro != nil %>
+    <b>Carro:</b>
+    <%= link_to Carro.find(@rotum.idCarro).marca, Carro.find(@rotum.idCarro), :style =>'color:white' %></br></br>
+    <% else %>
+    <% if current_user.id == @rotum.idUser %>
+    <b style="color:red">Por favor cadastrar um carro nesta rota.</b></br>
+    <% else %>
+    <b style="color:red">Atencao ainda nao ha carro cadastrado nesta rota (Por Favor entrar em contato com o motorista).</b></br>
+    <% end %>
+  </p>
+<% end %>
+
+<p>
+<% if current_user %>
+<% if current_user.id == @rotum.idUser %>
+  <% if  @rotum.idCarro == nil %>
+  <%= link_to 'Cadastrar Carro', new_carro_path, :class => 'i2Style' %>
+  <% end %>
+<% else %>
+  <%= link_to 'Cadastrar produto nesta rota', new_produto_path,:class => 'i2Style' %>
+<% end %>
+</p> 
+<% end %>
+<!--|
+<%= link_to 'Back', rota_path %>
+-->

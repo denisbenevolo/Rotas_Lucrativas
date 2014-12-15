@@ -1,0 +1,151 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <%= yield :head %>
+  <title>RotaLucrativa</title>
+
+  <%= stylesheet_link_tag "screen" %>
+  <%= stylesheet_link_tag 'gmaps4rails' %>
+  <%= javascript_include_tag "gmaps4rails" %>
+  <%= csrf_meta_tags %>
+</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+  <div id="logo">
+					<h1><a href=<%= inicios_path %>>Rotas Lucrativas</a></h1>
+					
+			  </div>
+			  <% if current_user %>
+			  <div align="right" id="teste">
+						
+								<% if current_user.photo.exists? then %>
+									<%= image_tag current_user.photo.url(:thumb), :align => 'left' %>
+								<% end %></br></br>
+								<h4>Logado em (<%= current_user.nome %> <%= current_user.sobrenome %>).
+							<%= link_to "Sair", log_out_path, :style =>'color:red' %></h4>
+							
+							<%= link_to 'Minhas Entregas',  entregas_path, :style =>'color:green' %> (<%= contar %>) |
+							<%= link_to 'Status dos Produtos', produtos_path, :style =>'color:green' %>
+						
+						<% else %>
+						<div align="right" id="user_nav">
+							<%= form_tag sessions_path do %>
+							<%= label_tag :"E-mail: " %>
+							<%= text_field_tag :email, params[:email] %>
+							<%= label_tag :"Senha: " %>
+							<%= password_field_tag :password %>
+							<%= submit_tag "Entrar", :class => 'link', :style =>'color:#fff'%>
+							
+							<% if flash[:notice]=="E-mail ou Senha invalidos" %>
+								<p style="color:red"><%= flash[:notice] %></p>
+							<% end %>
+			
+							<% if flash[:notice]=="Cadastro Realizado com Sucesso!." %>
+								<p style="color:green"><%= flash[:notice] %></p>
+							<% end %>
+							
+						<% end %>
+						<p><h3><%= link_to "Cadastre-se", sign_up_path, :style =>'color:#fff' %></p></h3>
+						
+						<% end %>
+					</div>
+
+
+				<div class="clr"></div>
+		  </div>
+	  <div class="content">
+				<ul id="menu">
+					<li><a href=<%= inicios_path %>>Home</a></li>
+					<% if current_user %>
+						<li> <a href=<%= rota_path %>>Buscar Rota</a></li>
+						<li> <a href=<%= new_rotum_path %>>Cadastrar Rota</a></li>
+						<li> <a href=<%= minharotas_path %>>Minhas Rotas</a></li>
+					<% else %>
+						<li><a href="#">Practicidade</a></li>
+						<li><a href="#">Sobre Nos</a></li>
+					<% end %>
+					<li><a href=<%= faleconoscos_path %>>Fale Conosco</a></li>
+			    </ul>
+				<% if yield =="" %>
+                	<p><img src="pitch.jpg" alt="" width="942" height="287" /></p>
+				<% end %> 
+				<%= yield %>
+                <%= yield :scripts %>
+                
+<div class="col">
+				<% if yield=="" %>
+				
+					<h2>Junte-se a nos !</h2>
+					<p>Ja pensou em seu produto chegar a voce de forma rapida e simples? E sem intermedio de transportadoras? Sim, isso e possivel, basta se cadastrar em nosso site e desfrutar dessa nova forma de entrega e quem sabe ganhar um dinheiro extra.</p>
+					<a style="color:#fff" class="link" href="#">MORE</a>
+		</div>
+				<div class="col">
+					<h2>Tutorial</h2>
+					<p>O site foi desenvolvido para ser o mais simples possivel, mas caso tenha alguma duvida visite nosso tutorial. Apenas em alguns passos voce entendera como funciona nossa logistica e solucionaremos suas duvidas para que possa interagir com os demais usuarios sem nenhum problema.</p>
+					<a style="color:#fff" class="link" href="#">MORE</a>
+				<% end %>
+				
+		</div>
+				<div class="clr"></div>
+		  </div>
+		  
+<div id="main">
+				<div class="col">
+					
+				</div>
+				<div class="col">
+					<h3>Ranking Usuarios</h3>
+					<div class="article">
+						<p class="date">March, 2010</p>
+						<h4><a href="http://www.truckingattorney.com/">Truck Accident Attorneys</a></h4>
+						<p class="short">Quisque scelerisque purus quis eros sollicitudin gravida. Aliquam erat volutpat. Donec a sem consequat. <a href="#">&raquo;</a></p>
+					</div>
+					<div class="article">
+						<p class="date">February, 2010</p>
+						<h4><a href="http://www.lawyermarketinggroup.com/">Law Firm Marketing</a></h4>
+						<p class="short">Quisque scelerisque purus quis eros sollicitudin gravida. Aliquam erat volutpat. Donec a sem consequat. <a href="#">&raquo;</a></p>
+					</div>
+					<div class="article">
+						<p class="date">January, 2010</p>
+						<h4><a href="#">Nunc pellentesque a porta lacus</a></h4>
+						<p class="short">Quisque scelerisque purus quis eros sollicitudin gravida. Aliquam erat volutpat. Donec a sem consequat. <a href="#">&raquo;</a></p>
+					</div>
+				</div>
+				<div class="col last">
+					<h3>Tecnologias Utilizadas</h3>
+					<div class="case">
+						<img src="imagens/rails.png" alt="Case Thumb" />
+						<p><a href="http://www.vizua.net">Framework Ruby on Rails</a><br />
+						Framework web implementado na linguagem Ruby para desenvolvimento agil de aplicacoes web. </p>
+					</div>
+					<div class="case">
+						<img src="imagens/css3.png" alt="Case Thumb" />
+						<p><a href="#">CSS 3</a><br />
+						Folha de estilo utilizada para definir a apresentacao em paginas web. </p>
+					</div>
+					<div class="case">
+						<img src="imagens/html5.png" alt="Case Thumb" />
+						<p><a href="#">HTML 5</a><br />
+						Linguagem de marcacao utilizada para produzir páginas web. </p>
+					</div>
+				</div>
+				<div class="clr"></div>
+			</div>
+			<div id="footer">
+				<p id="links">
+					<a href="#">Privacy Policy</a>
+					<a href="#">Terms of Use</a>
+				</p>
+				<p>
+					<a href="#">Home</a>
+					<a href="#">Practice</a>
+					<a href="#">Sobre Nos</a>
+					<a href="#">Fale Conosco</a>
+				</p>
+				<p>Copyright &copy; 2013 &minus; EACH-USP &middot;</a></p>
+			</div>
+		</div>
+	</body>
+</html>

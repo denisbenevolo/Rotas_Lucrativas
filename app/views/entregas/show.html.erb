@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Origem:</b>
+  <%= @entrega.origem %>
+</p>
+
+<p>
+  <b>Destino:</b>
+  <%= @entrega.destino %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @entrega.data %>
+</p>
+
+<p>
+  <b>Status da entrega:</b>
+  <%= Statusentrega.find(@entrega.statusentrega).status %></br>
+  <p>
+	<b>Produto:</b>
+<% Produto.all.each do |produto| if produto.idEntrega == @entrega.id %>
+  <%= link_to Tipocarga.find(produto.tipocarga_id).tipo, produto  %></br></br>
+<% end %>
+<% end %>
+</p>
+  <%= link_to 'Voltar', entregas_path, :class => 'i2Style'  %>
+
+</p>
+
+

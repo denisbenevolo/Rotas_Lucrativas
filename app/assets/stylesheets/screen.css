@@ -1,0 +1,178 @@
+﻿/*
+	template: Lawyer&Attorney
+	author:   Luka Cvrk (www.solucija.com)
+*/
+
+* { margin: 0; padding: 0; }
+body { font: .74em Tahoma, Verdana, Sans-Serif, Arial; background: url(../body.gif) repeat; color: #fff; }
+h1 { font: normal 3.4em "Trebuchet MS", Helvetica, Arial; }
+h2 { font: normal 1.8em "Trebuchet MS", Helvetica, Arial; color: #dfdfdf; margin: 0 0 15px; }
+h3 { font: normal 1.4em "Trebuchet MS", Helvetica, Arial; margin: 0 0 20px; }
+h4 { font: normal 1.2em "Trebuchet MS", Helvetica, Arial; color: #dfdfdf; margin: 0 0 4px; }
+p { margin: 0 0 15px; line-height: 1.6em; }
+a { outline: 0; color: #304D6F; text-decoration: none; }
+li { list-style: none; }
+li a, img { display: block; }
+img { outline: 0; border: 0; }
+#wrapper { width: 984px; margin: auto; }
+.clr { clear: both; }
+#logo { float: left; padding: 10px 5px; }
+	#logo h1 a { color: #fff; }
+		#logo h1 a span { color: #808080; }
+#user_nav { float:right; padding: 24px 0px;}
+
+
+#menu { height: 44px; padding: 5px 0 0 4px; }
+	#menu li { float: left; font-size: 1.3em; text-transform: uppercase; }
+		#menu li a { color: #888; margin: 0 50px 0 0; }
+			#menu li a.current, #menu li a:hover { color: #fff; }			
+	#pitch { clear: both; background: url(../pitch.jpg) no-repeat; height: 228px; margin: 0 0 30px; padding: 60px 360px 0 30px; }
+		#pitch h1 { font-size: 2.4em; color: #304D6F; margin: 0 0 20px; }
+		#pitch em { font-size: 1.3em; font-weight: bold; line-height: 1.6em; }
+.content { background: url(../content.gif) repeat; padding: 20px; }
+.link { background: #000; color: #fff; padding: 1.1px 10px; font-size: .9em; }
+.link2{ background: #00FF00; color: #fff; padding: 10px 70px; font-size: .9em; }
+#main { padding: 20px; }
+.col { float: left; width: 292px; margin: 0 30px 15px 0; }
+.maps { float: left; width: 400px; margin: 0 30px 15px 0; }
+#photo { float: left; width: 125px; margin: 0 30px 15px 0; }
+	.col.last { float: right; margin-right: 0; }
+	.case img { float: left; clear: left; margin: 0 20px 20px 0; background: #121212; padding: 3px; }
+	.short { padding: 0 0 15px 0; background: url(../line.gif) repeat-x left bottom; }
+	.case a, .article a { color: #ddd; font-weight: bold; }
+	.date { font-size: .84em; margin: 0 0 3px; }
+#footer { clear: both; background: url(../line.gif) repeat-x; padding: 20px 20px 10px; font-size: .9em; }
+	#footer a { color: #ccc; margin: 0 10px 0 0; border-bottom: 1px dotted #444; padding: 0 0 1px; }
+	#links { float: right; }
+		#links a { margin: 0 0 0 10px; }
+	#footer p { margin: 0 0 8px; }
+#teste { float:right; width:340px;padding: 10px 5px;}
+.inputtext {border:1px solid #bdc7d8;margin:0;padding:3px;-webkit-appearance:none;-webkit-border-radius:0}
+.inputtext {padding-bottom:4px}
+.inputtext:invalid {-webkit-box-shadow:none}
+.inputtext{min-width:160px}
+.inputtext2{min-width:369px}
+.inputtext3{min-width:100px}
+.search-field{background: url(../pitch.jpg);}
+.inputtext {border-color:#1d2a5b;margin:0;width:142px}
+.inputtext {border-color:#96a6c5;font-size:16px;padding:6px;width:250px}
+.text_field {font-size:18px;padding:8px 10px}
+.inputtext3 {padding:2px 4px}
+.text_field {-webkit-border-radius:5px;border-color:#bdc7d8;margin:0;width:377px}
+.text_field{width:172px}
+.DOMControl_placeholder {color:#777}
+.DOMControl_placeholder {color:#000}
+.field_container{margin:2px 0 1px 0}
+.lfloat{float:left}
+.mrm{margin-right:10px}
+.clearFix{zoom:1}
+.clearFix:after{clear:both;content:".";display:block;fontSize:0;height:0;lineHeight:0;visibility:hidden}
+.i2Style{
+font:bold 20px Tahoma, Geneva, sans-serif;
+font-style:normal;
+color:#ffffff;
+background:#000000;
+border:1px solid #ffffff;
+text-shadow:0px -1px 1px #222222;
+box-shadow:0px 0px 5px #000000;
+-moz-box-shadow:0px 0px 5px #000000;
+-webkit-box-shadow:0px 0px 5px #000000;
+border-radius:10px 10px 10px 10px;
+-moz-border-radius:10px 10px 10px 10px;
+-webkit-border-radius:10px 10px 10px 10px;
+width:190px;
+padding:10px 35px;
+cursor:pointer;
+margin:0 auto;
+}
+.i2Style2{
+font:bold 14px Tahoma, Geneva, sans-serif;
+font-style:normal;
+color:#ffffff;
+background:#000000;
+border:1px solid #ffffff;
+text-shadow:0px -1px 1px #222222;
+box-shadow:0px 0px 5px #000000;
+-moz-box-shadow:0px 0px 5px #000000;
+-webkit-box-shadow:0px 0px 5px #000000;
+border-radius:10px 10px 10px 10px;
+-moz-border-radius:10px 10px 10px 10px;
+-webkit-border-radius:6px 6px 6px 6px;
+width:60px;
+padding:9px 4px;
+cursor:pointer;
+margin:0 auto;
+}
+.i2Style:active{
+cursor:pointer;
+position:relative;
+top:2px;
+}
+
+#reg_form_box{padding-left:120px}
+#reg_form_box {margin:1px 0 0 102px}
+#reg_form_box {margin-left:95px;padding-top:15px}
+#reg_form_box {float:center}
+
+#editar {
+	background: url(images/editar.jpg) no-repeat left;
+	padding-left: 20px;
+	padding-top: 3px; 
+}
+#vizualizar {
+	background: url(images/vizualizar.jpg) no-repeat left;
+	padding-left: 20px;
+	padding-top: 3px; 
+}
+#excluir {
+	background: url(images/excluir.jpg) no-repeat left;
+	padding-left: 20px;
+	padding-top: 3px; 
+}
+
+table {
+	background: #fff;
+	border-right:0;
+	clear: both;
+	color: #333;
+	margin-bottom: 10px;
+	width: 100%;
+}
+th {
+	border:0;
+	border-bottom:2px solid #555;
+	text-align: left;
+	padding:px;
+}
+th a {
+	display: block;
+	padding: 2px px;
+	text-decoration: none;
+}
+th a.asc:after {
+	content: ' ?';
+}
+th a.desc:after {
+	content: ' ?';
+}
+table tr td {
+	background: #fff;
+	padding: 5px;
+	text-align: left;
+	vertical-align: top;
+	border-bottom:1px solid #ddd;
+}
+table tr:nth-child(2n) td {
+	background: #f5f5f5;
+}
+table .altrow td {
+	background: #f5f5f5;
+}
+td.actions {
+	text-align: center;
+	white-space: nowrap;
+}
+table td.actions a {
+	margin: 0px 6px;
+	padding:2px 5px;
+}

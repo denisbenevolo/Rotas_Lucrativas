@@ -1,0 +1,63 @@
+<% $aux=0 %>
+<% @entregas.each do |entrega| if current_user.id==entrega.idMotorista && entrega.statusentrega!="2"%>
+    <% $aux = $aux+1 %>
+<% end %>
+<% end %>
+
+<% if $aux==0 %>
+
+<script type="text/javascript">
+    alert("Não há entregas no momento");
+</script>
+
+<% end %>
+<% if $aux>0 %>
+<h1>Minhas entregas</h1>
+
+<table>
+  <tr>
+    <th>Origem</th>
+    <th>Destino</th>
+    <th>Data</th>
+    <th>Status da entrega</th>
+    <th>Usuario</th>
+    <th>Preco entrega</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entregas.each do |entrega| if current_user.id==entrega.idMotorista && entrega.statusentrega!="2"%>
+  <tr>
+    <td><%= entrega.origem %></td>
+    <td><%= entrega.destino %></td>
+    <td><%= entrega.data %></td>
+    <% $status = Statusentrega.find(entrega.statusentrega).status %>
+    <% if $status == "Aguardando confirmaçao motorista" %>
+        <td>Aguardando sua confirmação</td>
+    <% else %>
+        <td><%= $status %></td>
+    <% end %>
+    <td><%= link_to User.find(entrega.idUser).nome, User.find(entrega.idUser),:style =>'color:green'%></td>
+    <% if entrega.preco == nil %>
+        <% setAux %>
+        <td><%= link_to "Definir Preco", edit_entrega_path(entrega),:style =>'color:red'%></td>
+    <% else %>
+        <% if entrega.preco != "0" && entrega.preco != "" %>
+        <td><%= entrega.preco %> R$</td>
+        <% else %>
+            <td>Gratuito</td>
+        <% end %>
+    <% end %>
+    
+    <td><%= link_to 'Vizualizar', entrega %></td>
+    <% if entrega.statusentrega != "5" && entrega.statusentrega != "6" && entrega.statusentrega != "8" %>
+    <td><%= link_to 'Definir Status', edit_entrega_path(entrega) %></td>
+    <% end %>
+  </tr>
+<% end %>
+<% end %>
+</table>
+
+<br />
+<% $aux=0 %>
+<% end %>

@@ -1,0 +1,18 @@
+<h1>Detalhes do Usuario</h1>
+<% if @user.photo.exists? then %>
+  <%= image_tag @user.photo.url(:thumb) %>
+<% end %></br>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Telefone</th>
+    <th>Email</th>
+  </tr>
+
+
+  <tr>
+    <td><%= @user.nome %></td>
+    <td><%= @user.telefone %></td>
+    <td><%= @user.email %></td>
+  </tr>
+</table>

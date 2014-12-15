@@ -1,0 +1,72 @@
+<% $aux=0 %>
+<% @produtos.each do |produto| if current_user.id==produto.idUser %>
+    <% $aux = $aux+1 %>
+<% end %>
+<% end %>
+
+<% if $aux==0 %>
+
+<script type="text/javascript">
+    alert("Não há produtos cadastradaos");
+</script>
+<% end %>
+<% if $aux>0 %>
+
+<h1>Meus Produtos Cadastrados</h1>
+
+<table>
+ 
+  <tr>
+    <th>Tamanho</th>
+    <th>Peso</th>
+    <th>Tipocarga</th>
+    <th>Motorista</th>
+    <th>Status</th>
+    <th>Preco</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @produtos.each do |produto| if current_user.id == produto.idUser %>
+  <tr>
+    <td><%= produto.tamanho %></td>
+    <td><%= produto.peso %></td>
+    <td><%= Tipocarga.find(produto.tipocarga).tipo %></td>
+    
+    <% $motorista = User.find(Entrega.find(produto.idEntrega).idMotorista) %>
+    <td><%= link_to $motorista.nome, $motorista %></td>
+    <% $status = Statusentrega.find(Entrega.find(produto.idEntrega).statusentrega) %>
+    <% if $status.status == "Entregue" %>
+      <td><b style="color:green"><%= $status.status %></b></td>
+    <% else %>
+      <% if $status.status == "Aguardando confirmação contratante" %>
+        <td>Aguardando sua confirmação</td>
+      <% else %>
+        <td><%= $status.status %></td>
+      <% end %>
+    <% end %>
+    <% $entrega = Entrega.find(produto.idEntrega) %>
+    <% if $entrega.preco == nil %>
+       <td>Preco ainda não definido</td>
+    <% else %>
+      <% $preco = Entrega.find(produto.idEntrega).preco %>
+      <% if $preco == "0" || $preco == "" %>
+        <td>Gratuito</td>
+      <% else %>
+        <td><%= Entrega.find(produto.idEntrega).preco %> R$</td>
+      <% end %>
+    <% end %>
+    <% if $status.status == "Aguardando confirmação contratante" %>
+       <td><%= link_to 'Confirmar', confirmar(produto.idEntrega)&&confirmars_path %></td>
+       <td><%= link_to 'Recusar', recusar(produto.idEntrega)&&recusars_path,:style =>'color:red' %></td>
+    <% end %>
+  </tr>
+<% end %>
+<% end %>
+</table>
+
+<br />
+<!--
+<%= link_to 'New Produto', new_produto_path %>
+-->
+<% end %>

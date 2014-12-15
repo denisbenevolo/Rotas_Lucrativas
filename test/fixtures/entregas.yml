@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  origem: MyString
+  destino: MyString
+  data: 2013-06-08
+  statusentrega: MyString
+  idUser: 1
+  idMotorista: 1
+
+two:
+  origem: MyString
+  destino: MyString
+  data: 2013-06-08
+  statusentrega: MyString
+  idUser: 1
+  idMotorista: 1

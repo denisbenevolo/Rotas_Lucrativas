@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+<% if @carro.photo.exists? then %>
+  <div id="photo">
+      <%= image_tag @carro.photo.url(:thumb), :align => 'left' %>
+  </div>
+<% end %>
+<p>
+  <b>Marca:</b>
+  <%= @carro.marca %>
+</p>
+
+<p>
+  <b>Modelo:</b>
+  <%= @carro.modelo %>
+</p>
+
+<p>
+  <b>Ano:</b>
+  <%= @carro.ano %>
+</p>
+
+<p>
+  <b>Cor:</b>
+  <%= @carro.cor %>
+</p>
+
+<p>
+  <b>Placa:</b>
+  <%= @carro.placa %></br></br>
+  <% if current_user %>
+<% if current_user.id == @carro.idUser %>
+<%= link_to 'Editar', edit_carro_path(@carro), :class => 'i2Style' %> 
+<% end %>
+<% end %>
+<%= link_to 'Voltar', Rotum.find(getRota), :class => 'i2Style' %>
+</p>
+
+

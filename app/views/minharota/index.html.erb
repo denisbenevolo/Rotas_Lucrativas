@@ -1,0 +1,21 @@
+
+<h1>Suas Rotas Cadastradas</h1>
+<table>
+  <tr>
+    <th>Origem</th>
+    <th>Destino</th>
+    <th>Data</th>
+	<th>Horario</th>
+    <th></th>
+  </tr>
+
+<% @rota.each do |rotum| if current_user.id==rotum.idUser %>
+  <tr>
+    <td><%= rotum.origem %></td>
+    <td><%= rotum.destino %></td>
+    <td><%= rotum.data %></td>
+	  <td><%= rotum.horario %></td>
+    <td><%= link_to 'Vizualizar', rotum %></td>  </tr>
+<% end %>
+<% end %>
+</table></br>

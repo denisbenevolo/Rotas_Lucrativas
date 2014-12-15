@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<% if @produto.photo.exists? then %>
+	<div id="photo">
+  		<%= image_tag @produto.photo.url(:small), :align => 'left' %>
+	</div>
+<% end %>
+<p>
+  <b>Tamanho:</b>
+  <%= @produto.tamanho %>
+</p>
+
+<p>
+  <b>Peso:</b>
+  <%= @produto.peso %>
+</p>
+
+<p>
+  <b>Tipo de carga:</b>
+  <%= Tipocarga.find(@produto.tipocarga_id).tipo %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%= @produto.descricao %></br></br>
+</p>

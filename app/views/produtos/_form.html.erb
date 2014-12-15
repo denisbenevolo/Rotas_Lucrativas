@@ -1,0 +1,37 @@
+<%= form_for(@produto,:html => { :multipart => true }) do |f| %>
+  <% if @produto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
+
+      <ul>
+      <% @produto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :tamanho, :class => 'inputtext2 text_field DOMControl_placeholder', :placeholder => "Tamanho(metros)"  %><br>
+  </div>
+  <div class="field">
+   <br> <%= f.text_field :peso, :class => 'inputtext2 text_field DOMControl_placeholder', :placeholder => "Peso(Kg)"  %>
+  </div>
+  <div class="field">
+    <%= f.label :"Tipo de Carga" %><br />
+    <%= f.select :tipocarga_id , @tipocarga.collect { |a| [ a.tipo, a.id ] } %>
+  </div>
+  <div class="field">
+    <%= f.label :"Descricao:" %><br />
+    <%= f.text_area :descricao %>
+  </div></br>
+  <div class="field">
+    <%= f.label :"Adicione uma foto do Produto:" %><br />
+    <%= f.file_field :photo %>
+  </div></br>
+  
+  <div class="actions">
+    <%= f.submit :Cadastrar, :class => 'i2Style' %>
+    <%= link_to 'Cancelar', rota_path, :class => 'i2Style' %>
+  </div>
+<% end %>

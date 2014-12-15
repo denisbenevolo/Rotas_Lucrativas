@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tamanho: MyString
+  peso: MyString
+  tipocarga_id: 1
+  descricao: MyText
+  idUser: 1
+  idEntrega: 1
+
+two:
+  tamanho: MyString
+  peso: MyString
+  tipocarga_id: 1
+  descricao: MyText
+  idUser: 1
+  idEntrega: 1

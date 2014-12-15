@@ -1,0 +1,8 @@
+== BEM VINDO AO ROTAS LUCRATIVAS
+
+1 - Faça o download ou o clone do Projeto Rotas Lucrativas 
+2 - instalando as dependecias, digite o comando  $ bundle install
+3 - Gerando o Banco de Dados, estamos usando o Sqlite3   $ rake db:create 
+4 - Gerando as Tabelas com base nos nosso modelos  $ rake db:migrate 
+5 - Agora é hora de rodar a aplicação $ rails s
+ 

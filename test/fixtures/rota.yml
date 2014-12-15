@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  origem: MyString
+  destino: MyString
+  data: 2013-06-08
+  horario: 2013-06-08 17:03:48
+  latitude: 1.5
+  longitude: 1.5
+  idUser: 1
+  idCarro: 1
+  gmaps: false
+
+two:
+  origem: MyString
+  destino: MyString
+  data: 2013-06-08
+  horario: 2013-06-08 17:03:48
+  latitude: 1.5
+  longitude: 1.5
+  idUser: 1
+  idCarro: 1
+  gmaps: false
